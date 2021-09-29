@@ -1,0 +1,6 @@
+ 创建一个线程
+
+Java 提供了三种创建线程的方法：
+    通过实现 Runnable 接口；
+    通过继承 Thread 类本身；
+    通过 Callable 和 Future 创建线程。
