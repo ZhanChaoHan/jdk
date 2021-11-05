@@ -1,4 +1,4 @@
-package com.jachs.thread.part1;
+package com.jachs.thread.runnable;
 
 /***
  * 
