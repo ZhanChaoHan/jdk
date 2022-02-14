@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Random;
 import java.util.stream.Stream;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import com.jachs.lambda.entity.Book;
@@ -17,7 +18,36 @@ import com.jachs.lambda.entity.Book;
  *
  */
 public class StreamTest {
-
+	List<Book>lBook=new ArrayList<Book>();
+	
+	@Before
+	public void init() {
+		Book b1=new Book();
+		b1.setPrice(1.2);
+		b1.setName("zbc");
+		
+		Book b2=new Book();
+		b2.setPrice(1.5);
+		b2.setName("beq");
+		
+		Book b3=new Book();
+		b3.setPrice(2.6);
+		b3.setName("aaa");
+		
+		Book b4=new Book();
+		b4.setPrice(5.6);
+		b4.setName("AK47");
+		
+		Book b5=new Book();
+		b5.setPrice(6.666);
+		b5.setName("abcd");
+		
+		lBook.add(b1);
+		lBook.add(b2);
+		lBook.add(b3);
+		lBook.add(b4);
+		lBook.add(b5);
+	}
 	@Test
 	public void test1() {
 		//参数是一个对象（数组或者类对象）
@@ -59,39 +89,38 @@ public class StreamTest {
 				"A",
 				"e"
 		}).filter(s->s.equalsIgnoreCase("a")).count();
-		
 		System.out.println(conut);
+		
+		lBook.stream().filter((Book a)-> a.getName().matches("a.*"))
+		.forEach(x -> System.out.println(x.getName()));;
 	}
 	@Test
 	public void test6() {
 		//限制数量
 		Random random = new Random();
 		random.ints().limit(10).forEach(System.out::println);
+		
+		//先跳过，再排序
+		Stream.of(88,77,1,2,10,52,65,159,5).skip(2).sorted((a,b)->a.compareTo(b)).forEach(System.out::println);
 	}
 	@Test
 	public void test7() {
+		//排序
 		Stream.of(1,2,10,52,65,159,5).sorted((a,b)->a.compareTo(b)).forEach(System.out::println);
-		
-		Book b1=new Book();
-		b1.setPrice(1.2);
-		b1.setName("zbc");
-		
-		Book b2=new Book();
-		b2.setPrice(1.5);
-		b2.setName("beq");
-		
-		Book b3=new Book();
-		b3.setPrice(2.6);
-		b3.setName("aaa");
-		
-		List<Book>lBook=new ArrayList<Book>();
-		
-		lBook.add(b1);
-		lBook.add(b2);
-		lBook.add(b3);
-		
+		System.out.println("-----------------------");
 		lBook.stream().sorted((Book a,Book b)-> a.getName().compareTo(b.getName()))
 		.forEach(a -> System.out.println(a.getName()));
+		System.out.println("-----------------------");
+		lBook.stream().sorted((a,b)->{
+			if(a.getName().length()>b.getName().length())
+				return 1;
+			else if(a.getName().length()<b.getName().length())
+				return -1;
+			else
+				return 0;
+		}).forEach((a)->{
+			System.out.println(a.getName()+"\t"+a.getPrice());
+		});;
 	}
 	@Test
 	public void test8() {
