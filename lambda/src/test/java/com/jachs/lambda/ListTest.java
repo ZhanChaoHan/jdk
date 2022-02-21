@@ -78,6 +78,7 @@ public class ListTest {
 		
 		list.forEach(System.out::println);
 	}
+	//排序
 	@Test
 	public void test3() {
 		List<String>sList=Arrays.asList(
