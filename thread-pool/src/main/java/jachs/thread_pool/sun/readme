@@ -14,8 +14,15 @@ Java通过Executors提供四种线程池，分别为
     BlockingQueue<Runnable> workQueue,任务队列
     ThreadFactory threadFactory,线程池工厂
     RejectedExecutionHandler handler,拒绝策略
-
-三、阻塞队列
+    
+三、拒绝策略
+    AbortPolicy,该策略是线程池的默认策略。使用该策略时，如果线程池队列满了丢掉这个任务并且抛出RejectedExecutionException异常。 
+    DiscardPolicy,这个策略和AbortPolicy的slient版本，如果线程池队列满了，会直接丢掉这个任务并且不会有任何异常。 
+    DiscardOldestPolicy, 这个策略从字面上也很好理解，丢弃最老的。也就是说如果队列满了，会将最早进入队列的任务删掉腾出空间，再尝试加入队列。因为队列是队尾进，队头出，所以队头元素是最老的，因此每次都是移除对头元素后再尝试入队。 
+    CallerRunsPolicy,使用此策略，如果添加到线程池失败，那么主线程会自己去执行该任务，不会等待线程池中的线程去执行。就像是个急脾气的人，我等不到别人来做这件事就干脆自己干。 
+    自定义
+    
+四、阻塞队列
     ArrayBlockingQueue ：一个由数组结构组成的有界阻塞队列
     LinkedBlockingQueue ：一个由链表结构组成的有界阻塞队列（常用）
     PriorityBlockingQueue ：一个支持优先级排序的无界阻塞队列
