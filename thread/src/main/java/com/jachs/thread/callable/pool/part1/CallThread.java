@@ -1,6 +1,5 @@
-package com.jachs.thread.callable.pool;
+package com.jachs.thread.callable.pool.part1;
 
-import java.nio.file.spi.FileSystemProvider;
 import java.util.Random;
 import java.util.concurrent.Callable;
 

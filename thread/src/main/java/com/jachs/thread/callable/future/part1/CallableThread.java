@@ -1,4 +1,4 @@
-package com.jachs.thread.callable.future;
+package com.jachs.thread.callable.future.part1;
 
 import java.util.Random;
 import java.util.concurrent.Callable;

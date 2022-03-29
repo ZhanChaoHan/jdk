@@ -1,18 +1,16 @@
-package com.jachs.thread.callable.pool;
+package com.jachs.thread.callable.pool.part1;
 
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.FutureTask;
 
-import com.jachs.thread.callable.future.CallableThread;
-
 /***
  * 
  * @author zhanchaohan
  *
  */
-public class PoolTaskTest {
+public class Demo {
 	public static void main(String[] args) throws InterruptedException, ExecutionException {
 		ExecutorService executorService = Executors.newFixedThreadPool(3);
 		

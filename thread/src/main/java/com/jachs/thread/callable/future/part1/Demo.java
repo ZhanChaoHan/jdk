@@ -1,4 +1,4 @@
-package com.jachs.thread.callable.future;
+package com.jachs.thread.callable.future.part1;
 
 import java.util.concurrent.FutureTask;
 import java.util.concurrent.RunnableFuture;
@@ -8,7 +8,7 @@ import java.util.concurrent.RunnableFuture;
  * @author zhanchaohan
  *
  */
-public class CallableThreadTest {
+public class Demo {
 	
 	public static void main(String[] args) throws Exception {
 		CallableThread ct1=new CallableThread();
