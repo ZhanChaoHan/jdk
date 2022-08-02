@@ -28,9 +28,10 @@ public class IntTest {
         System.out.println ( error1 );
         
     }
+    
     @Test
     public void test3() {
-    	int num=177;//10进制
+    	int num=20;//10进制
     	String binary=Integer.toBinaryString(num);//二进制
     	String octal=Integer.toOctalString(num);//八进制
     	String hex=Integer.toHexString(num);//16进制
@@ -38,5 +39,10 @@ public class IntTest {
     	System.out.println(binary);
     	System.out.println(octal);
     	System.out.println(hex);
+    	
+    	System.out.println("转换为10进制");
+    	System.out.println(Integer.valueOf(binary, 2));
+    	System.out.println(Integer.valueOf(octal, 8));
+    	System.out.println(Integer.valueOf(hex, 16));
     }
 }
