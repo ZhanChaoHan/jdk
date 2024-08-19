@@ -4,7 +4,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.IntSummaryStatistics;
 import java.util.List;
+import java.util.Optional;
 import java.util.Random;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import org.junit.Before;
@@ -131,5 +133,25 @@ public class StreamTest {
 		System.out.println("列表中最小的数 : " + stats.getMin());
 		System.out.println("所有数之和 : " + stats.getSum());
 		System.out.println("平均数 : " + stats.getAverage());
+	}
+	
+	@Test
+	public void test9() {
+	    List<String> names = Arrays.asList("Alice", "Bob", "Charlie");
+	    List<String> upperCaseNames = names.stream()
+	                                       .map(String::toUpperCase)//转大写
+	                                       .peek(System.out::println)// peek是一个中间操作方法，它接受一个Consumer函数作为参数，对流中的每个元素执行该函数。与forEach不同的是，peek方法会返回一个新的流，该流中的元素和原始流中的元素相同。
+	                                       .collect(Collectors.toList());//转换List数组
+	    
+	    upperCaseNames.forEach (System.out::println);
+	}
+	
+	//累计求和
+	@Test
+	public void test10() {
+	    List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
+	    Optional<Integer> sum = numbers.stream()
+	                                   .reduce((a, b) -> a + b);
+	    sum.ifPresent(System.out::println); // 输出结果: 15
 	}
 }
