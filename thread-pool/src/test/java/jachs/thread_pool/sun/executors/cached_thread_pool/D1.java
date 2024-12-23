@@ -21,8 +21,8 @@ public class D1 {
     public static void main ( String[] args ) throws Exception {
         ExecutorService executorService =Executors.newCachedThreadPool ();
         
-        executorService.execute ( new D1Thread() );
-        Future future =executorService.submit ( new D1Thread() );
+        executorService.execute ( new D1Thread() );//execute 无返回数据
+        Future future =executorService.submit ( new D1Thread() );//submit 可以获取返回数据
         Future future1 =executorService.submit ( new D1Future() );
         
         System.out.println (future.get ()  );
